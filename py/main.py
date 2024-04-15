@@ -1,7 +1,11 @@
-import time
+from flask import Flask
 
-def main():
-    pass
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Adam is quite the stinky, smelly boy."
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)
