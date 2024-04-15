@@ -14,7 +14,8 @@ class Timer():
         """
         self.initial_time = time.time()
         self.goal_time = self.initial_time + set_timer
-    
+        self.duration = set_timer
+
     def seconds_left(self):
         """Returns seconds left on timer.
 
