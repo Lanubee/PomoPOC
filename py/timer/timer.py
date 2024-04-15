@@ -5,7 +5,6 @@ class Timer():
     """Class for a Timer object. Tracks the time through an
     initial time and a goal time.
     """
-    pause_pointer = -1
 
     def __init__(self, set_timer):
         """Constructor for Timer object.
@@ -18,6 +17,7 @@ class Timer():
         self.duration = set_timer
         self.time_paused = 0
         self.paused = False
+        self.pause_pointer = -1
 
     def seconds_left(self):
         """Returns seconds left on timer.
@@ -34,7 +34,7 @@ class Timer():
         """Pauses timer
         """
         self.duration = self.seconds_left()
-        Timer.pause_pointer = time.time()
+        self.pause_pointer = time.time()
         self.paused = True
 
         #TODO: Pause the timer display variable
@@ -43,7 +43,7 @@ class Timer():
         """Unpauses timer, sets new goal_time and stores time elapsed while paused
         """
         self.goal_time = time.time() + self.duration
-        self.time_paused = time.time() - Timer.pause_pointer
+        self.time_paused = time.time() - self.pause_pointer
         self.paused = False
 
         #TODO: Unpause timer display variable
