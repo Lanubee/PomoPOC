@@ -10,7 +10,19 @@ function App() {
     programming: "",
   });
 
-  
+  useEffect(() => {
+    fetch("/data").then((res) =>
+      res.json().then((data) => {
+        setdata({
+          name: data.nameame,
+          age: data.age,
+          date: data.date,
+          programming: data.programming
+        });
+      })
+    );
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +30,10 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>
+          TIME TO PRINT THIS MFER
+        </p>
+        <p>{data.programming}</p>
         <a
           className="App-link"
           href="https://reactjs.org"

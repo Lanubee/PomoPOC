@@ -8,9 +8,9 @@ app = Flask(__name__)
 @app.route("/data")
 def hello():
     return{
-        'Name': 'Adam',
-        "Age": "21",
-        "Date":x,
+        'name': 'Adam',
+        "age": "21",
+        "date":x,
         "programming": "Adam Smasher Ezzeldin"
     }
 
