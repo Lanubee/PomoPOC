@@ -25,12 +25,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Timer />
-        <p>{data.programming}</p>
-        <p>Time is currently {data.date}</p>
-      </header>
+    <div className="container">
+      <Timer />
     </div>
   );
 }

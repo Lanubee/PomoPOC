@@ -1,0 +1,44 @@
+:root {
+    --default-color: darkgray;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+* {
+    margin: unset;
+    padding: unset;
+}
+
+body {
+    background-color: var(--default-color);
+}
+
+.container {
+    display: grid;
+    grid-auto-rows: 350px;
+    padding: 1rem 0rem;
+}
+
+.timer {
+    margin: 0.5rem auto;
+    border: 2px solid black;
+    width: 600px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: top;
+    background-color: lightgray;
+}
+
+.timer h1 {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: var(--black);
+    font-size: 2.5rem;
+    user-select: none;
+    text-shadow: 2px 2px white;
+}
