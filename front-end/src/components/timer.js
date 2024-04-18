@@ -3,7 +3,7 @@ import React from 'react'
 function timer() {
   return (
     <div className="timer">
-      <h1>Pomodoro Timer</h1>
+      <h1>luv adam</h1>
       </div>
   )
 }

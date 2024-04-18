@@ -1,5 +1,5 @@
 :root {
-    --default-color: darkgray;
+    --default-color: #202020;
     --white: #ffffff;
     --black: #000000;
 }
@@ -21,9 +21,8 @@ body {
 
 .timer {
     margin: 0.5rem auto;
-    border: 2px solid black;
     width: 600px;
-    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
     padding: 1.5rem;
     border-radius: 1rem;
     cursor: pointer;
@@ -31,7 +30,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: top;
-    background-color: lightgray;
+    background-color: #303030;
 }
 
 .timer h1 {
@@ -40,5 +39,5 @@ body {
     color: var(--black);
     font-size: 2.5rem;
     user-select: none;
-    text-shadow: 2px 2px white;
+    text-shadow: 2px 2px #202020;
 }
