@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function Timer() {
-  const [timer, setTimer] = useState(null);
+  const [timer, setTimer] = useState('00:00');
   const [inputValue, setInputValue] = useState('');
 
   /**
@@ -11,6 +11,8 @@ function Timer() {
     let timerId;
     if (timer !== null && timer > 0) {
       timerId = setTimeout(() => setTimer(timer - 1), 1000);
+    } else {
+      setTimer('00:00');
     }
     return () => clearTimeout(timerId);
   }, [timer]);
@@ -41,16 +43,18 @@ function Timer() {
    * 
    */
     return (
-    <div className="timer">
-      <div>Timer: {timer}</div>
-      <label htmlFor='timeInput'>Set Timer:</label>
-      <input
-        type="number"
-        id='timeInput'
-        value={inputValue}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleSetTimer}>Submit</button>
+    <div className="timerbox">
+      <div className="timer">{timer}</div>
+        <div className="timer-input">
+          <label htmlFor='timeInput'>Set Timer:</label>
+          <input
+            type="number"
+            id='timeInput'
+            value={inputValue}
+            onChange={handleInputChange}
+          />
+          <button onClick={handleSetTimer}>Submit</button>
+        </div>
     </div>
   );
 }

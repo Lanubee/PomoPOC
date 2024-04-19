@@ -1,3 +1,5 @@
+/* uncomment the borders if you wanna see the components and stuff... */
+
 :root {
     --default-color: #202020;
     --white: #ffffff;
@@ -14,7 +16,7 @@ body {
 }
 
 .dashboard {
-    border: solid yellow;
+    /* border: solid yellow; */
     display: flex;
     margin: 0.5rem auto;
     width: 550px;
@@ -25,25 +27,38 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: 100px fr fr;
+    /* grid-template-rows: 100px fr fr; */
     grid-template-rows: auto 350px;
     padding: 1rem 0rem;
-    border: solid yellow;
+    /* border: solid yellow; */
 }
 
-.timer {
+.timerbox {
     margin: 0.5rem auto;
     width: 600px;
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
     padding: 1.5rem;
     border-radius: 0.5rem;
     cursor: pointer;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-rows: 400px fr;
     justify-content: center;
-    align-items: top;
+    align-items: center;
     background-color: #303030;
-    border: solid yellow;
+    /* border: solid yellow; */
+}
+
+.timer {
+    /* border: solid yellow; */
+    width: 400px;
+    font-family: sans-serif;
+    font-size: 10rem;
+}
+
+.timer-input {
+    /* border: solid yellow; */
+    width: 175px;
+    justify-self: center;
 }
 
 .dashboard h1 {
