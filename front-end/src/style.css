@@ -25,7 +25,8 @@ body {
 
 .container {
     display: grid;
-    grid-auto-rows: 350px;
+    grid-template-rows: 100px fr fr;
+    grid-template-rows: auto 350px;
     padding: 1rem 0rem;
     border: solid yellow;
 }
@@ -45,7 +46,7 @@ body {
     border: solid yellow;
 }
 
-.timer h1 {
+.dashboard h1 {
     font-family: sans-serif;
     text-transform: uppercase;
     color: var(--black);

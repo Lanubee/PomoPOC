@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import "./style.css";
 // import components
 import Timer from "./components/timer";
+import Dashboard from "./components/dashboard";
 
 function App() {
   const [data, setdata] = useState({
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div className="container">
+      <Dashboard />
       <Timer />
     </div>
   );
