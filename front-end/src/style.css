@@ -13,10 +13,21 @@ body {
     background-color: var(--default-color);
 }
 
+.dashboard {
+    border: solid yellow;
+    display: flex;
+    margin: 0.5rem auto;
+    width: 550px;
+    padding: 1.5rem;
+    justify-content: center;
+    background-color: #303030;
+}
+
 .container {
     display: grid;
     grid-auto-rows: 350px;
     padding: 1rem 0rem;
+    border: solid yellow;
 }
 
 .timer {
@@ -24,13 +35,14 @@ body {
     width: 600px;
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
     padding: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: top;
     background-color: #303030;
+    border: solid yellow;
 }
 
 .timer h1 {

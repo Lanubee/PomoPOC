@@ -1,11 +1,24 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
-function timer() {
+
+function Timer() {
+  const date = new Date();
+  const[Timer, setTimer] = useState(null);
+
+  // function setTimer(addedTime){
+  //   setTimer(addedTime);
+  // }
+
+  useEffect(() => {
+    Timer > 0 && setTimeout(() => setTimer(Timer - 1), 1000);
+  }, [Timer]);
+  
   return (
     <div className="timer">
-      <h1>luv adam</h1>
+      <h1>Hello.</h1>
+      <div>Timer: {Timer}</div> 
       </div>
   )
 }
 
-export default timer
+export default Timer;
