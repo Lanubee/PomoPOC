@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import "./style.css";
 // import components
 import Timer from "./components/timer";
-import Dashboard from "./components/dashboard";
+import Dashboard from "./components/dashboard/dashboard";
 
 function App() {
   const [data, setdata] = useState({
