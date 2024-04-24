@@ -1,0 +1,40 @@
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: #202020;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContainer {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: #303030;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    position: relative;
+  }
+  
+  .modalContainer h1 {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .buttonPosition {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+  }
+  
+  #closeButton {
+    background-color: crimson;
+    width: 100px;
+    cursor: pointer;
+  }

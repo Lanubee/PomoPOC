@@ -3,32 +3,17 @@ import "./style.css";
 // import components
 import Timer from "./components/timer";
 import Dashboard from "./components/dashboard/dashboard";
+import SettingsModal from './components/Settings-Modal/SettingsModal';
 
 function App() {
-  const [data, setdata] = useState({
-    name: "",
-    age: 0,
-    date: "",
-    programming: "",
-  });
-
-  useEffect(() => {
-    fetch("/data").then((res) =>
-      res.json().then((data) => {
-        setdata({
-          name: data.name,
-          age: data.age,
-          date: data.date,
-          programming: data.programming
-        });
-      })
-    );
-  }, []);
+  const [openSettings, setOpenSettings] = useState(false)
 
   return (
     <div className="container">
-      <Dashboard />
+      <Dashboard settingsBool={setOpenSettings}/>
       <Timer />
+      {openSettings && <SettingsModal settingsBoolean={setOpenSettings}/>}
+
     </div>
   );
 }
