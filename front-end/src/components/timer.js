@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PomodoroSound from '../Assets/PomodoroSound.mp3';
 
 function Timer() {
   const [timer, setTimer] = useState('00:00');
@@ -6,7 +7,14 @@ function Timer() {
   const [inputValueMinutes, setInputValueMinutes] = useState('');
 
   /**
-   * Updates the timer to go down by 1 per second
+   * Plays the alarm sound
+   */
+  function endSound(){
+    new Audio(PomodoroSound).play()
+  }
+
+  /**
+   * Updates the timer to go down by 1 per second and plays alarm when timer is 00:00
    */
   useEffect(() => {
     let timerId;
@@ -29,8 +37,14 @@ function Timer() {
       setTimer(minutesString + ':' + secondsString);
     }, 1000);
     }
+    else{
+      endSound();
+    }
     return () => clearTimeout(timerId);
+
+    
   }, [timer]);
+  
 
   /**
    * Converts the input from user to an integer
