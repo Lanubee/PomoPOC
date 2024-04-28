@@ -5,6 +5,7 @@ function Timer() {
   const [timer, setTimer] = useState('00:00');
   const [inputValueSeconds, setInputValueSeconds] = useState('');
   const [inputValueMinutes, setInputValueMinutes] = useState('');
+  const [timerStarted, setTimerStarted] = useState(false);
 
   /**
    * Plays the alarm sound
@@ -20,6 +21,7 @@ function Timer() {
     let timerId;
     if (timer !== '00:00') 
     {
+      setTimerStarted(true);
       timerId = setTimeout(() => 
       {
       const timerParts = timer.split(':');
@@ -37,8 +39,9 @@ function Timer() {
       setTimer(minutesString + ':' + secondsString);
     }, 1000);
     }
-    else{
+    else if(timerStarted){
       endSound();
+      setTimerStarted(false);
     }
     return () => clearTimeout(timerId);
 
