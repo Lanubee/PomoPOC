@@ -43,6 +43,7 @@ function Timer() {
       endSound();
       setTimerStarted(false);
     }
+    document.title = timer;
     return () => clearTimeout(timerId);
 
     
