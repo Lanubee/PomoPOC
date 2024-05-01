@@ -18,36 +18,39 @@ function Timer() {
    * Updates the timer to go down by 1 per second and plays alarm when timer is 00:00
    */
   useEffect(() => {
-    let timerId;
-    if (timer !== '00:00') 
-    {
-      setTimerStarted(true);
-      timerId = setTimeout(() => 
-      {
-      const timerParts = timer.split(':');
-      const minutes = parseInt(timerParts[0]);
-      const seconds = parseInt(timerParts[1]);
-      let newMinutes = minutes;
-      let newSeconds = seconds - 1;
-      if (newSeconds < 0)
-      {
-        newMinutes -= 1;
-        newSeconds = 59;
-      }
-      const minutesString = String(newMinutes).padStart(2, '0');
-      const secondsString = String(newSeconds).padStart(2, '0');
-      setTimer(minutesString + ':' + secondsString);
-    }, 1000);
-    }
-    else if(timerStarted){
-      endSound();
-      setTimerStarted(false);
+    let intervalID;
+    if (timerStarted && timer !== '00:00') {
+      let minutesString;
+      let secondsString;
+      const endTime = new Date().getTime() + (parseInt(timer.split(':')[0]) * 60 * 1000) + (parseInt(timer.split(':')[1]) * 1000);
+      intervalID = setInterval(() => {
+        const now = new Date().getTime();
+        const timeLeft = endTime - now;
+        if (timeLeft > 0) {
+          const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.round((timeLeft % (1000 * 60)) / 1000);
+          if (seconds === 60){
+            minutesString = String(minutes + 1).padStart(2, '0');
+            secondsString = String(0).padStart(2, '0');
+
+          }
+          else{
+            minutesString = String(minutes).padStart(2, '0');
+            secondsString = String(seconds).padStart(2, '0');
+          }
+          setTimer(`${minutesString}:${secondsString}`);
+        } else {
+          clearInterval(intervalID);
+          endSound();
+          setTimerStarted(false);
+          setTimer('00:00');
+        }
+      }, 1000);
     }
     document.title = timer;
-    return () => clearTimeout(timerId);
+    return () => clearInterval(intervalID);
+  }, [timer, timerStarted]);
 
-    
-  }, [timer]);
   
 
   /**
@@ -61,6 +64,7 @@ function Timer() {
       const minutesString = String(inputValueMinutes).padStart(2, '0')
       const secondsString = String(inputValueSeconds).padStart(2, '0')
       setTimer(minutesString + ':' + secondsString);
+      setTimerStarted(true);
     } else {
       console.error('Invalid input for timer');
     }
